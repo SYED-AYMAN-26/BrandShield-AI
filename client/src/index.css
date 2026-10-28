@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply text-slate-800 antialiased; }
+  /* Always-visible keyboard focus, never removed. */
+  :focus-visible { @apply outline-none ring-2 ring-brand-500 ring-offset-2 ring-offset-white; }
+  h1, h2, h3 { @apply text-slate-900; }
+}
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-60; }
+  .btn-primary { @apply btn bg-brand-600 text-white hover:bg-brand-700 active:bg-brand-800; }
+  .btn-secondary { @apply btn border border-slate-300 bg-white text-slate-700 hover:bg-slate-50; }
+  .btn-danger { @apply btn bg-rose-600 text-white hover:bg-rose-700; }
+  .btn-ghost { @apply btn text-slate-600 hover:bg-slate-100; }
+  .card { @apply rounded-xl border border-slate-200 bg-white shadow-card; }
+  .label { @apply mb-1.5 block text-sm font-medium text-slate-700; }
+  .input { @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:ring-1 focus:ring-brand-500; }
+  .help { @apply mt-1 text-xs text-slate-500; }
+  .field-error { @apply mt-1 text-xs font-medium text-rose-600; }
+  .link { @apply font-medium text-brand-700 underline decoration-brand-300 underline-offset-2 hover:text-brand-800; }
+}

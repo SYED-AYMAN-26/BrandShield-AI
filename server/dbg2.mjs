@@ -1,0 +1,13 @@
+import mongoose from 'mongoose';
+import { config } from '/home/user/brandshield/server/src/config.js';
+import { BrandFact, Guideline } from '/home/user/brandshield/server/src/models/index.js';
+import { runRules } from '/home/user/brandshield/server/src/services/checker.js';
+await mongoose.connect(config.mongoUri);
+const facts = await BrandFact.find({ status: 'approved' }).lean();
+const guides = await Guideline.find({ status: 'active' }).lean();
+console.log('FACTS:', facts.map(f => `${f.key}=${f.value}`));
+console.log('GUIDES appliesToChannel:', guides.map(g => `${g.code}:${JSON.stringify(g.appliesToChannel)}`));
+const body = 'Our Pro plan is just ₹2,499 per user per month, and every plan includes a 30 day free trial with no credit card.';
+const r = runRules(body, facts, guides, { channel: 'landing_page' });
+console.log('\nfindings:', r.findings.map(f => `${f.ruleId} :: ${f.excerpt}`));
+await mongoose.disconnect();

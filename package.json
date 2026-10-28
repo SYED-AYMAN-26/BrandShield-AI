@@ -1,0 +1,19 @@
+{
+  "name": "brandshield-ai",
+  "private": true,
+  "version": "3.0.0",
+  "type": "module",
+  "scripts": {
+    "setup": "npm --prefix server install && npm --prefix client install",
+    "dev": "node scripts/dev.mjs",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "seed": "npm --prefix server run seed",
+    "test": "npm --prefix server test",
+    "test:e2e": "playwright test",
+    "build": "npm --prefix client run build"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1"
+  }
+}

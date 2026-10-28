@@ -1,0 +1,30 @@
+{
+  "name": "brandshield-server",
+  "version": "3.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "seed": "node src/scripts/seed.js",
+    "test": "node --test --test-concurrency=1 test/"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "brandshield-ai": "file:..",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mammoth": "^1.8.0",
+    "mongoose": "^8.7.0",
+    "multer": "^2.5.0",
+    "pdfjs-dist": "^4.6.82",
+    "tesseract.js": "^5.1.1",
+    "zod": "^3.23.8"
+  }
+}
