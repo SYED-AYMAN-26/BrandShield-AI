@@ -72,3 +72,4 @@ export function createApp() {
   app.use(errorHandler);
   return app;
 }
+export default createApp();
